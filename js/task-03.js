@@ -12,3 +12,9 @@ const images = [
     alt: 'Group of Horses Running',
   },
 ];
+
+const galleryItems = ({ url, alt }) => `<li><img src="${url}" alt="${alt}" width = 300 height = auto></li>`;
+const galleryMarkup = images.reduce((acc, item) => acc + galleryItems(item), []);
+
+const gallery = document.querySelector('.gallery');
+gallery.insertAdjacentHTML('afterbegin', galleryMarkup);
